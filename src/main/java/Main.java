@@ -1,12 +1,36 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         experiment1();
+        experiment2();
+    }
+
+    public static void experiment2() {
+        //*출력 자동화*// -> 출력을 모니터가 아닌 문자열로
+        System.out.println("안녕하세요");
+        //printStream 객체임
+        PrintStream originalOut = System.out;
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+
+        System.setOut(printStream);
+
+        System.out.println("하하하"); //저장소로 돌아가서 출력되지 않음
+
+        String outStr = outputStream.toString();
+
+        System.setOut(originalOut);
+        printStream.close();
+        System.out.println(outStr);
+
     }
 
     public static void experiment1() {
-
+        //* 입력 자동화*//
 
         String input = """
                 등록
