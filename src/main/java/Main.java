@@ -1,11 +1,17 @@
+import com.back.App;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        experiment1();
-        experiment2();
+
+        new App(new Scanner(System.in))
+                .run();  //진짜 사용하는 프로그램이기 때문에 스캐너 새로
+
+        //        experiment1();
+        //        experiment2();
     }
 
     public static void experiment2() {

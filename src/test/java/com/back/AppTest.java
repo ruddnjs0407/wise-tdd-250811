@@ -25,8 +25,7 @@ public class AppTest {
                 등록
                 현재를 사랑하라.
                 작자미상
-                종료
-                """);
+                """); //종료를 빼먹으면 무한 루프
         assertThat(out).contains("명령) ");
         assertThat(out).contains("명언: ");
         assertThat(out).contains("작가: ");
