@@ -1,3 +1,5 @@
+package com.back;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestUtillTest {
     @Test
-    @DisplayName("TestUtil.genScanner()")
+    @DisplayName("com.back.TestUtil.genScanner()")
     void t1() {
         //*테스트트 도구를 만들 떄도 TDD방식을 사용해도 된다*//
         Scanner sc = TestUtil.genScanner("""
@@ -29,7 +31,7 @@ public class TestUtillTest {
     }
 
     @Test
-    @DisplayName("TestUtil.setOutToByteArray()")
+    @DisplayName("com.back.TestUtil.setOutToByteArray()")
     void t2() throws IOException {
 
         ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
