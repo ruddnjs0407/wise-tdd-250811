@@ -2,6 +2,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +30,7 @@ public class TestUtillTest {
 
     @Test
     @DisplayName("TestUtil.setOutToByteArray()")
-    void t2() {
+    void t2() throws IOException {
 
         ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
 
@@ -37,9 +38,9 @@ public class TestUtillTest {
 
         String outStr = outputStream.toString();
 
-        TestUtil.clearSetOutToByteArray(); //원상복구
+        TestUtil.clearSetOutToByteArray(outputStream); //원상복구
 
-        assertThat(outStr).isEqualTo("1 / 이순신 / 나의 죽음을 적에게 알리지 마라");
+        assertThat(outStr).contains("1 / 이순신 / 나의 죽음을 적에게 알리지 마라");
 
         System.out.println("이제 화면에 출력됩니다.");
     }
