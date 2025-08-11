@@ -13,12 +13,22 @@ public class AppTest {
     @Test
     @DisplayName("== 명언 앱 == 출력")
     void t1() {
-        Scanner sc = TestUtil.genScanner("종료");
-
-        ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
-        new App(sc).run(); // 선입력된 테스트 스캐너를 사용해야함
-        String out = outputStream.toString();
-
+        String out = AppTestRunner.run("종료");
         assertThat(out).contains("== 명언 앱 ==");
+    }
+
+    @Test
+    @DisplayName("등록")
+    void t2() {
+
+        String out = AppTestRunner.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                종료
+                """);
+        assertThat(out).contains("명령) ");
+        assertThat(out).contains("명언: ");
+        assertThat(out).contains("작가: ");
     }
 }
